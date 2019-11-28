@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--别名：简化映射文件中对类名的引用，若没有别名，需要写类的完整名称-->
+    <typeAliases>
+        <package name="com.demo.database.data"/>
+    </typeAliases>
+    <!--数据源-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/demo0912?serverTimezone=Asia/Shanghai"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <!--关联映射文件-->
+    <!--引入映射文件有四种方式，此处只选择一种-->
+    <mappers>
+        <mapper resource="com/demo/database/xml/TDemoFile.xml"></mapper>
+    </mappers>
+
+</configuration>
